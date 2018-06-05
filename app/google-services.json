@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "698384747102",
+    "firebase_url": "https://testprojectpredictfootball.firebaseio.com",
+    "project_id": "testprojectpredictfootball",
+    "storage_bucket": "testprojectpredictfootball.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698384747102:android:0e3692d4c4445bea",
+        "android_client_info": {
+          "package_name": "com.example.qq.projectfinalmachinelearning2018"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698384747102-mdki6gnplekqhht28hqaq2ji4vscac6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.qq.projectfinalmachinelearning2018",
+            "certificate_hash": "da37cce9a3d3bf9cfe5f73131a7862829bed36b3"
+          }
+        },
+        {
+          "client_id": "698384747102-hv69o4d0kjugrtte2067d7b3tbq75gpu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXUWeS4elmpwUarTS0P8pUotJJPdO-V1Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698384747102-hv69o4d0kjugrtte2067d7b3tbq75gpu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

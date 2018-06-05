@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action1_football_match"
+        android:icon="@drawable/footballmatch"
+        android:title="Match" />
+    <item
+        android:id="@+id/action2_football_schedule"
+        android:icon="@drawable/footballsoccerboard"
+        android:title="Schedule"/>
+    <item
+        android:id="@+id/action3_additional"
+        android:icon="@drawable/settings"
+        android:title="Additional"/>
+</menu>
