@@ -96,16 +96,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="GD"
-            android:textAlignment="textEnd"
-            android:textColor="@color/colorRed"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Pts"
             android:textAlignment="center"
             android:textColor="@color/colorRed"

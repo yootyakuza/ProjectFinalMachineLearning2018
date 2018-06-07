@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -26,19 +28,19 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by Sarayut on 13/5/2561.
  */
 public class Fragment_other extends android.app.Fragment {
-    private final String TAG = "YUT";
+    private final String TAG = Fragment_other.class.getSimpleName();
+    ;
     CircleImageView imageView;
     LinearLayout layoutLogin, layoutProfile;
     Button butLogin;
-    TextView txtnoti, txtProfile;
+    TextView txtnoti, txtProfile, txtNews;
     private DatabaseReference databaseUser;
     private FirebaseDatabase database;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener AuthListener;
-    private FirebaseUser firebaseUser;
     private UserManage userManage;
     Context context;
-    User uInfo;
+    private User uInfo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,16 +49,17 @@ public class Fragment_other extends android.app.Fragment {
         imageView = view.findViewById(R.id.photoProfile);
         txtProfile = view.findViewById(R.id.txtProfile);
         txtnoti = view.findViewById(R.id.txtnoti);
+        txtNews = view.findViewById(R.id.txtNews);
         butLogin = view.findViewById(R.id.butLogin);
         layoutLogin = view.findViewById(R.id.layoutlogin);
         layoutProfile = view.findViewById(R.id.layoutprofile);
         context = getActivity();
-
         userManage = new UserManage(context);
+
         database = FirebaseDatabase.getInstance();
-        databaseUser = database.getReference();
+        databaseUser = database.getReference("User");
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
+
         uInfo = new User();
 
         layoutLogin.setVisibility(View.VISIBLE);
@@ -72,7 +75,7 @@ public class Fragment_other extends android.app.Fragment {
                     if (isSuccess) {
                         layoutLogin.setVisibility(View.GONE);
                         layoutProfile.setVisibility(View.VISIBLE);
-                        getData(user);
+                        getData(user.getUid());
                     } else {
                         layoutLogin.setVisibility(View.VISIBLE);
                         layoutProfile.setVisibility(View.GONE);
@@ -95,7 +98,7 @@ public class Fragment_other extends android.app.Fragment {
         layoutProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,ActivityProfile.class);
+                Intent intent = new Intent(context, ActivityNavigator.class);
                 startActivity(intent);
             }
         });
@@ -105,23 +108,42 @@ public class Fragment_other extends android.app.Fragment {
 
             }
         });
+        txtNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ActivityNews.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
-    private void getData(final FirebaseUser user) {
+    private void getData(final String id) {
         databaseUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds: dataSnapshot.getChildren()){
-                    uInfo.set_email(ds.child(firebaseUser.getUid()).getValue(User.class).get_email());
-                    txtProfile.setText(uInfo.get_email());
-                    Log.d(TAG,"Show data email: " + uInfo.get_email());
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (ds.getKey().equals(id)) {
+                        uInfo = ds.getValue(User.class);
+                        txtProfile.setText(uInfo.get_email());
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    new LoadImage2(imageView).execute(uInfo.get_img());
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        }).start();
+                    }
+                    Log.d(TAG, "Show data email: " + uInfo.get_email());
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.w(TAG, "Failed to read value.",databaseError.toException());
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
             }
         });
     }

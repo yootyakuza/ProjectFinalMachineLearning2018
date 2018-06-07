@@ -6,8 +6,12 @@ package com.example.qq.projectfinalmachinelearning2018;
 public class User {
     public String _username;
     public String _email;
-    public String _imgPath;
     public int _age;
+    public String _img;
+
+    public User() {
+
+    }
 
     public String get_username() {
         return _username;
@@ -25,19 +29,19 @@ public class User {
         this._email = _email;
     }
 
-    public String get_imgPath() {
-        return _imgPath;
-    }
-
-    public void set_imgPath(String _imgPath) {
-        this._imgPath = _imgPath;
-    }
-
     public int get_age() {
         return _age;
     }
 
     public void set_age(int _age) {
         this._age = _age;
+    }
+
+    public String get_img() {
+        return _img;
+    }
+
+    public void set_img(String _img) {
+        this._img = _img;
     }
 }

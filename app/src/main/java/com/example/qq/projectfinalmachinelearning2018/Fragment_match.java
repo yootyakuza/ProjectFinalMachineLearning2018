@@ -74,7 +74,7 @@ public class Fragment_match extends android.app.Fragment {
         protected Void doInBackground(Void... voids) {
             HttpHandler sh = new HttpHandler();
             // String url = "https://www.football-data.org/v1/fixtures";
-            String url = "https://api.myjson.com/bins/ylgni";
+            String url = "https://api.myjson.com/bins/fxp36";
             String jsonStr = sh.makeServiceCall(url);
             Log.e(TAG, "Response from url: " + jsonStr);
             if (jsonStr != null) {
@@ -145,13 +145,13 @@ public class Fragment_match extends android.app.Fragment {
 
             if (progressDialog.isShowing()) {
                 progressDialog.dismiss();
-                String[] homeTeamName = new String[footballMatchList.size()];
-                String[] awayTeamName = new String[footballMatchList.size()];
-                String[] date = new String[footballMatchList.size()];
+                final String[] homeTeamName = new String[footballMatchList.size()];
+                final String[] awayTeamName = new String[footballMatchList.size()];
+                final String[] date = new String[footballMatchList.size()];
                 String[] goalsHomeTeam = new String[footballMatchList.size()];
                 String[] goalsAwayTeam = new String[footballMatchList.size()];
-                String[] imgHome = new String[footballMatchList.size()];
-                String[] imgAway = new String[footballMatchList.size()];
+                final String[] imgHome = new String[footballMatchList.size()];
+                final String[] imgAway = new String[footballMatchList.size()];
                 for (int i = 0; i < homeTeamName.length; ) {
                     for (HashMap<String, String> hashMap : footballMatchList) {
                         hashMap.keySet();
@@ -190,6 +190,11 @@ public class Fragment_match extends android.app.Fragment {
                             if (isSuccess) {
                                 Intent intent = new Intent(context, ActivityDetail.class);
                                 intent.putExtra("position", position);
+                                intent.putExtra("homeTeamName",homeTeamName[position]);
+                                intent.putExtra("awayTeamName",awayTeamName[position]);
+                                intent.putExtra("imgHome",imgHome[position]);
+                                intent.putExtra("imgAway",imgAway[position]);
+                                intent.putExtra("date",date[position]);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(context, "Please Login !!", Toast.LENGTH_SHORT).show();

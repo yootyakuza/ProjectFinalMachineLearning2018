@@ -3,6 +3,7 @@
     package="com.example.qq.projectfinalmachinelearning2018">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -24,12 +25,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityRegister" />
-        <activity android:name=".ActivityProfile" />
+        <activity android:name=".ActivityNavigator" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Activity_login" />
-        <activity android:name=".ActivityDetail"></activity>
+        <activity android:name=".ActivityDetail" />
+        <activity android:name=".ActivityNews"></activity>
     </application>
 
 </manifest>

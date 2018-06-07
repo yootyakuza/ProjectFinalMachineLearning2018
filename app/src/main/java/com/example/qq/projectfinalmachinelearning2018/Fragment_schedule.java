@@ -24,7 +24,7 @@ import java.util.HashMap;
  */
 public class Fragment_schedule extends android.app.Fragment {
 
-    private String TAG = Fragment_match.class.getSimpleName();
+    private String TAG = Fragment_schedule.class.getSimpleName();
     ListView listView;
     ArrayList<HashMap<String, String>> footballScheduleList;
     ProgressDialog progressDialog;
@@ -91,7 +91,6 @@ public class Fragment_schedule extends android.app.Fragment {
                         int hAgainst = Integer.valueOf(homeAgainst);
                         int aAgainst = Integer.valueOf(awayAgainst);
                         String resultAgainst = String.valueOf(hAgainst + aAgainst);
-                        String goalDifference = c.getString("goalDifference");
                         String points = c.getString("points");
 
                         HashMap<String, String> schedule = new HashMap<>();
@@ -103,7 +102,6 @@ public class Fragment_schedule extends android.app.Fragment {
                         schedule.put("lost", resultLost);
                         schedule.put("goalFor",resultGF);
                         schedule.put("against", resultAgainst);
-                        schedule.put("goalDifference", goalDifference);
                         schedule.put("points", points);
                         footballScheduleList.add(schedule);
                     }
@@ -143,7 +141,7 @@ public class Fragment_schedule extends android.app.Fragment {
                 progressDialog.dismiss();
 
                 ListAdapter adapter = new SimpleAdapter(getActivity(), footballScheduleList,
-                        R.layout.item_schedule, new String[]{"position", "name", "played", "won", "drawn", "lost","goalFor", "against", "goalDifference", "points"}, new int[]{R.id.tvPosition, R.id.tvTeamName, R.id.tvPlay, R.id.tvWin, R.id.tvDraw, R.id.tvLost,R.id.tvGoalFor, R.id.tvGoalAgainst, R.id.tvGoalDifference, R.id.tvPoints});
+                        R.layout.item_schedule, new String[]{"position", "name", "played", "won", "drawn", "lost","goalFor", "against", "points"}, new int[]{R.id.tvPosition, R.id.tvTeamName, R.id.tvPlay, R.id.tvWin, R.id.tvDraw, R.id.tvLost,R.id.tvGoalFor, R.id.tvGoalAgainst, R.id.tvPoints});
                 listView.setAdapter(adapter);
             }
         }

@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 
 /**
@@ -109,7 +110,7 @@ public class Activity_login extends AppCompatActivity {
                         @Override
                         public void run() {
                             finish();
-                            Intent intent = new Intent(context, ActivityProfile.class);
+                            Intent intent = new Intent(context, ActivityNavigator.class);
                             startActivity(intent);
                             finish();
                         }

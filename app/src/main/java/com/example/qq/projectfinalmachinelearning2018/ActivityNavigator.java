@@ -16,7 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ActivityProfile extends AppCompatActivity {
+public class ActivityNavigator extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
@@ -29,7 +29,7 @@ public class ActivityProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_navigator);
 
         context = this;
         userManage = new UserManage(context);
@@ -43,7 +43,7 @@ public class ActivityProfile extends AppCompatActivity {
         navigationView.setItemIconTintList(null);
 
         drawerLayout = findViewById(R.id.Draw_layout);
-        toggle = new ActionBarDrawerToggle(ActivityProfile.this, drawerLayout, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        toggle = new ActionBarDrawerToggle(ActivityNavigator.this, drawerLayout, R.string.nav_drawer_open, R.string.nav_drawer_close);
         //when drawer open toggle is know
         drawerLayout.addDrawerListener(toggle);
 
