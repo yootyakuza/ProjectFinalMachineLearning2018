@@ -73,6 +73,7 @@ public class CustomAdapter extends BaseAdapter{
         date1.setText(date[position]);
         goalsHome.setText(goalsHomeTeam[position]);
         goalsAway.setText(goalsAwayTeam[position]);
+
         new LoadImage(imageHome).execute(imgHome[position]);
         new LoadImage(imageAway).execute(imgAway[position]);
 

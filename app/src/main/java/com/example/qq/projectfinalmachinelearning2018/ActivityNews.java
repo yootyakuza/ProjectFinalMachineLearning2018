@@ -59,18 +59,18 @@ public class ActivityNews extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             HttpHandler sh = new HttpHandler();
-            //String url = "https://www.footballwebpages.co.uk/news.json?comp=1&max=8";
-            String url = "https://api.myjson.com/bins/koxfu";
+            String url = "https://www.footballwebpages.co.uk/news.json?comp=1&max=10";
+            //String url = "https://api.myjson.com/bins/koxfu";
             String jsonStr = sh.makeServiceCall(url);
             Log.e(TAG, "Response from url: " + jsonStr);
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObject = new JSONObject(jsonStr);
-
-                    JSONArray jsonContacts = jsonObject.getJSONArray("item");//รอแก้ error
+                    JSONObject getNews = jsonObject.getJSONObject("news");
+                    JSONArray jsonItem = getNews.getJSONArray("item");
                     //looping through All Contacts
-                    for (int i = 0; i < jsonContacts.length(); i++) {
-                        JSONObject c = jsonContacts.getJSONObject(i);
+                    for (int i = 0; i < jsonItem.length(); i++) {
+                        JSONObject c = jsonItem.getJSONObject(i);
                         String title = c.getString("title");
                         String description = c.getString("description");
                         String image = c.getString("image");
@@ -91,7 +91,7 @@ public class ActivityNews extends AppCompatActivity {
                     ActivityNews.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(context, "Json parsing error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, "Json parsing error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }

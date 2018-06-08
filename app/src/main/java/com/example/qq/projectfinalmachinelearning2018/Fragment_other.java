@@ -48,7 +48,7 @@ public class Fragment_other extends android.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_other, container, false);
         imageView = view.findViewById(R.id.photoProfile);
         txtProfile = view.findViewById(R.id.txtProfile);
-        txtnoti = view.findViewById(R.id.txtnoti);
+//        txtnoti = view.findViewById(R.id.txtnoti);
         txtNews = view.findViewById(R.id.txtNews);
         butLogin = view.findViewById(R.id.butLogin);
         layoutLogin = view.findViewById(R.id.layoutlogin);
@@ -102,12 +102,12 @@ public class Fragment_other extends android.app.Fragment {
                 startActivity(intent);
             }
         });
-        txtnoti.setOnClickListener(new View.OnClickListener() {
+        /*txtnoti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
-        });
+        });*/
         txtNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
