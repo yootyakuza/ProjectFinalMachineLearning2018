@@ -1,6 +1,7 @@
 package com.example.qq.projectfinalmachinelearning2018;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -11,8 +12,6 @@ import com.google.firebase.database.FirebaseDatabase;
  * Created by Sarayut on 23/5/2561.
  */
 public class FirebaseDatabaseHandle {
-
-    private static final String TAG = FirebaseDatabaseHandle.class.getSimpleName();
 
     private DatabaseReference databaseUser;
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -34,4 +33,6 @@ public class FirebaseDatabaseHandle {
         databaseUser = database.getReference("User");
         databaseUser.child(firebaseUser.getUid()).setValue(user);
     }
+
+
 }

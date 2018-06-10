@@ -59,7 +59,7 @@ public class ActivityNews extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             HttpHandler sh = new HttpHandler();
-            String url = "https://www.footballwebpages.co.uk/news.json?comp=1&max=10";
+            String url = "https://www.footballwebpages.co.uk/news.json?comp=1&max=8";
             //String url = "https://api.myjson.com/bins/koxfu";
             String jsonStr = sh.makeServiceCall(url);
             Log.e(TAG, "Response from url: " + jsonStr);

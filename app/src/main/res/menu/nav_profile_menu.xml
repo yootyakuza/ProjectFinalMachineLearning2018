@@ -12,13 +12,9 @@
     <item android:title="Premier league">
         <menu>
             <item
-                android:id="@+id/menu_manU"
-                android:icon="@drawable/manchesterunited"
-                android:title="Manchester united" />
-            <item
-                android:id="@+id/menu_liverpool"
-                android:icon="@drawable/liverpool"
-                android:title="Liverpool" />
+                android:id="@+id/select"
+                android:icon="@drawable/footballselect"
+                android:title="Select Competition" />
         </menu>
     </item>
 </menu>

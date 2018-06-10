@@ -2,5 +2,28 @@
     <string name="app_name">ProjectFinalMachineLearning2018</string>
     <string name="nav_drawer_open">Open navigation drawer</string>
     <string name="nav_drawer_close">Close navigation drawer</string>
-    
+
+    <!--<array name="topics">-->
+        <!--<item>Liverpool</item>-->
+        <!--<item>Burnley</item>-->
+        <!--<item>Crystal Palace</item>-->
+        <!--<item>Everton</item>-->
+        <!--<item>Man City</item>-->
+        <!--<item>Southampton</item>-->
+        <!--<item>Arsenal</item>-->
+        <!--<item>Bournemouth</item>-->
+        <!--<item>Chelsea</item>-->
+        <!--<item>Man United</item>-->
+        <!--<item>Stoke</item>-->
+        <!--<item>Swansea</item>-->
+        <!--<item>Tottenham</item>-->
+        <!--<item>Watford</item>-->
+        <!--<item>West Brom</item>-->
+        <!--<item>West Ham</item>-->
+        <!--<item>Brighton</item>-->
+        <!--<item>Newcastle</item>-->
+        <!--<item>Huddersfield</item>-->
+        <!--<item>Leicester</item>-->
+    <!--</array>-->
+
 </resources>

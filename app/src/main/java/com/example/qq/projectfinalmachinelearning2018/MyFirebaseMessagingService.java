@@ -15,9 +15,10 @@ import com.google.firebase.messaging.RemoteMessage;
 /**
  * Created by Sarayut on 9/6/2561.
  */
-public class MyFirebaseMessagingService extends FirebaseMessagingService{
+public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
-    public static final String TAG = "Notify";
+    public static final String TAG = "NotifyMessage";
+
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
@@ -25,20 +26,21 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
         String from = remoteMessage.getFrom();
         Log.d(TAG, "Message receive: " + from);
 
-        if(remoteMessage.getNotification() != null){
+        if (remoteMessage.getNotification() != null) {
+            Log.e(TAG, "Title: " + remoteMessage.getNotification().getTitle());
             Log.d(TAG, "Notification: " + remoteMessage.getNotification().getBody());
-            Notificate(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody());
+            Notificate(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
         }
-        if(remoteMessage.getData().size() > 0){
-            Log.d(TAG,"Data: " + remoteMessage.getData());
+        if (remoteMessage.getData().size() > 0) {
+            Log.d(TAG, "Data: " + remoteMessage.getData());
         }
     }
 
     private void Notificate(String title, String body) {
 
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.nofiticationicon)
@@ -49,6 +51,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
                 .setContentIntent(pendingIntent);
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0,notificationBuilder.build());
+        notificationManager.notify(0, notificationBuilder.build());
     }
 }

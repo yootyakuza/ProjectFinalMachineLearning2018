@@ -57,6 +57,9 @@ getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,n
                     case R.id.menu_home:
                         Intent intent = new Intent(context,MainActivity.class);
                         startActivity(intent);
+                    case R.id.select:
+                        Intent intent1 = new Intent(context,ActivitySelectCompetition.class);
+                        startActivity(intent1);
                         break;
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
