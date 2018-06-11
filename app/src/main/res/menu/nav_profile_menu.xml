@@ -14,7 +14,7 @@
             <item
                 android:id="@+id/select"
                 android:icon="@drawable/footballselect"
-                android:title="Select Competition" />
+                android:title="Follow Team" />
         </menu>
     </item>
 </menu>

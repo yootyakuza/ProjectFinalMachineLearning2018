@@ -74,7 +74,7 @@ public class Fragment_match extends android.app.Fragment {
         protected Void doInBackground(Void... voids) {
             HttpHandler sh = new HttpHandler();
             // String url = "https://www.football-data.org/v1/fixtures";
-            String url = "https://api.myjson.com/bins/fxp36";
+            String url = "https://api.myjson.com/bins/i3zre";
             String jsonStr = sh.makeServiceCall(url);
             Log.e(TAG, "Response from url: " + jsonStr);
             if (jsonStr != null) {

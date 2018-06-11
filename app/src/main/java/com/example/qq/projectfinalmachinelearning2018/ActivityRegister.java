@@ -131,8 +131,8 @@ public class ActivityRegister extends AppCompatActivity {
     }
 
     public boolean EmailValidator(String email) {
-        Pattern pattern;
-        Matcher matcher;
+        Pattern pattern;//กลุ่มคำ
+        Matcher matcher;//แมช
         final String email_pattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         pattern = Pattern.compile(email_pattern);
         matcher = pattern.matcher(email);

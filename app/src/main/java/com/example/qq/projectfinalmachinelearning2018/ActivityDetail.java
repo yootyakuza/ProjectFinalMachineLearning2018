@@ -19,16 +19,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ActivityDetail extends AppCompatActivity {
-    private final String TAG = ActivityDetail.class.getSimpleName();;
+    private final String TAG = ActivityDetail.class.getSimpleName();
+    ;
     private int pos = 0;
     private String home, away, imgHome, imgAway, time;
-    private DatabaseReference databaseLastYearHome,databaseLastYearAway,databasePrediction;
+    private DatabaseReference databaseLastYearHome, databaseLastYearAway, databasePrediction;
     private FirebaseDatabase database;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener AuthListener;
     private FirebaseUser firebaseUser;
     Context context;
-    TextView tvHWon, tvHDrawn, tvHLost,tvHAWon, tvHADrawn, tvHALost, tvAWon, tvADrawn, tvALost,tvAHWon, tvAHDrawn, tvAHLost, tvtime,homeName,awayName,result;
+    TextView tvHWon, tvHDrawn, tvHLost, tvHAWon, tvHADrawn, tvHALost, tvAWon, tvADrawn, tvALost, tvAHWon, tvAHDrawn, tvAHLost, tvtime, homeName, awayName, result;
     ImageView imageViewH, imageViewA;
 
     @Override
@@ -88,17 +89,17 @@ public class ActivityDetail extends AppCompatActivity {
                         String won = String.valueOf(ds.child("Won").getValue());
                         String drawn = String.valueOf(ds.child("Drawn").getValue());
                         String lost = String.valueOf(ds.child("Lost").getValue());
-                        tvHWon.setText("W: "+ won);
+                        tvHWon.setText("W: " + won);
                         tvHDrawn.setText("D: " + drawn);
-                        tvHLost.setText("L: "+ lost);
+                        tvHLost.setText("L: " + lost);
 
                     } else if (ds.child("Team").getValue().equals(away)) {
                         String won = String.valueOf(ds.child("Won").getValue());
                         String drawn = String.valueOf(ds.child("Drawn").getValue());
                         String lost = String.valueOf(ds.child("Lost").getValue());
-                        tvAHWon.setText("W: "+ won);
+                        tvAHWon.setText("W: " + won);
                         tvAHDrawn.setText("D: " + drawn);
-                        tvAHLost.setText("L: "+ lost);
+                        tvAHLost.setText("L: " + lost);
                     }
                     Log.d(TAG, "Show data: " + ds.getValue());
                 }
@@ -117,17 +118,17 @@ public class ActivityDetail extends AppCompatActivity {
                         String won = String.valueOf(ds.child("Won").getValue());
                         String drawn = String.valueOf(ds.child("Drawn").getValue());
                         String lost = String.valueOf(ds.child("Lost").getValue());
-                        tvHAWon.setText("W: "+ won);
+                        tvHAWon.setText("W: " + won);
                         tvHADrawn.setText("D: " + drawn);
-                        tvHALost.setText("L: "+ lost);
+                        tvHALost.setText("L: " + lost);
 
                     } else if (ds.child("Team").getValue().equals(away)) {
                         String won = String.valueOf(ds.child("Won").getValue());
                         String drawn = String.valueOf(ds.child("Drawn").getValue());
                         String lost = String.valueOf(ds.child("Lost").getValue());
-                        tvAWon.setText("W: "+ won);
+                        tvAWon.setText("W: " + won);
                         tvADrawn.setText("D: " + drawn);
-                        tvALost.setText("L: "+ lost);
+                        tvALost.setText("L: " + lost);
                     }
                     Log.d(TAG, "Show data: " + ds.getValue());
                 }
@@ -147,19 +148,18 @@ public class ActivityDetail extends AppCompatActivity {
                         String resultTeam = String.valueOf(ds.child("FTR").getValue());
                         homeName.setText(home);
                         awayName.setText(away);
-                        if(resultTeam.equals("H")){
+                        if (resultTeam.equals("H")) {
                             homeName.setTextColor(Color.parseColor("#009933"));
                             awayName.setTextColor(Color.parseColor("#e60000"));
                             result.setText("Home Team Win");
                             homeName.setTypeface(null, Typeface.BOLD);
                             result.setTextColor(Color.parseColor("#009933"));
-                        }else if(resultTeam.equals("D")){
+                        } else if (resultTeam.equals("D")) {
                             homeName.setTextColor(Color.parseColor("#ff9933"));
                             awayName.setTextColor(Color.parseColor("#ff9933"));
                             result.setText("Drawn");
                             result.setTextColor(Color.parseColor("#ff9933"));
-                        }
-                        else if(resultTeam.equals("A")){
+                        } else if (resultTeam.equals("A")) {
                             homeName.setTextColor(Color.parseColor("#e60000"));
                             awayName.setTextColor(Color.parseColor("#009933"));
                             result.setText("Away Team Win");

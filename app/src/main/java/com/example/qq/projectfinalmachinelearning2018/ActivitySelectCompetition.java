@@ -3,23 +3,27 @@ package com.example.qq.projectfinalmachinelearning2018;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class ActivitySelectCompetition extends AppCompatActivity {
+    public static final String TAG = "NotifyMessage";
     ListView listViewSelect;
     Context context;
     CustomSelectComAdapter adapter;
     TextView tvNotiCancel;
-    Button butSub,butUnsub;
+    Button butSub, butUnsub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +33,18 @@ public class ActivitySelectCompetition extends AppCompatActivity {
         listViewSelect = findViewById(R.id.listviewSelectTeam);
         context = this;
 
-        final String[] listTeam = {"Liverpool", "Burnley", "Crystal Palace", "Everton", "ManCity", "Southampton", "Arsenal", "Bournemouth", "Chelsea", "ManUnited", "Stoke", "Swansea", "Tottenham", "Watford", "WestBrom", "WestHam", "Brighton", "Newcastle", "Huddersfield", "Leicester"};
+        final String[] listTeam = {"Liverpool", "Burnley", "CrystalPalace", "Everton", "ManCity", "Southampton", "Arsenal", "Bournemouth", "Chelsea", "ManUnited", "Stoke", "Swansea", "Tottenham", "Watford", "WestBrom", "WestHam", "Brighton", "Newcastle", "Huddersfield", "Leicester"};
 
         adapter = new CustomSelectComAdapter(context, listTeam);
         listViewSelect.setAdapter(adapter);
         listViewSelect.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                openDialog(listTeam,position);
+                openDialog(listTeam, position);
             }
         });
     }
+
     public void openDialog(final String[] listTeam, final int position) {
         final Dialog dialog = new Dialog(this);
         dialog.setTitle("Setting notification");
@@ -65,8 +70,6 @@ public class ActivitySelectCompetition extends AppCompatActivity {
 
                 String topic = listTeam[position];
                 FirebaseMessaging.getInstance().subscribeToTopic(topic);
-                Toast.makeText(context,"Topic Subscribed: " + topic,Toast.LENGTH_SHORT).show();
-
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -75,7 +78,7 @@ public class ActivitySelectCompetition extends AppCompatActivity {
                         startActivity(getIntent());
                     }
                 }, 2000);
-
+                Toast.makeText(context, "Topic Subscribed: " + topic, Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
@@ -90,8 +93,6 @@ public class ActivitySelectCompetition extends AppCompatActivity {
 
                 String topic = listTeam[position];
                 FirebaseMessaging.getInstance().unsubscribeFromTopic(topic);
-                Toast.makeText(context,"Topic Unsubscribe From: " + topic,Toast.LENGTH_SHORT).show();
-
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -100,7 +101,7 @@ public class ActivitySelectCompetition extends AppCompatActivity {
                         startActivity(getIntent());
                     }
                 }, 2000);
-
+                Toast.makeText(context, "Topic Unsubscribe From: " + topic, Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });

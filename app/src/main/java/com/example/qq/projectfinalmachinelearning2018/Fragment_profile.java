@@ -131,7 +131,7 @@ public class Fragment_profile extends Fragment {
                                 public void run() {
                                     try {
                                         new LoadImage2(circleImageView).execute(uInfo.get_img());
-                                    }catch (Exception e){
+                                    } catch (Exception e) {
                                         e.printStackTrace();
                                     }
                                 }

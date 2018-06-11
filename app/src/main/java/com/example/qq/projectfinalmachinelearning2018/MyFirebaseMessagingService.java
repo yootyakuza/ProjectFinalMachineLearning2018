@@ -8,6 +8,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -28,7 +29,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         if (remoteMessage.getNotification() != null) {
             Log.e(TAG, "Title: " + remoteMessage.getNotification().getTitle());
-            Log.d(TAG, "Notification: " + remoteMessage.getNotification().getBody());
+            Log.d(TAG, "Body: " + remoteMessage.getNotification().getBody());
             Notificate(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
         }
         if (remoteMessage.getData().size() > 0) {

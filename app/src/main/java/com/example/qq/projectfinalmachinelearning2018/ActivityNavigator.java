@@ -47,18 +47,19 @@ public class ActivityNavigator extends AppCompatActivity {
         //when drawer open toggle is know
         drawerLayout.addDrawerListener(toggle);
 
-        if(savedInstanceState == null){
-getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_profile()).commit();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_profile()).commit();
         }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.menu_home:
-                        Intent intent = new Intent(context,MainActivity.class);
+                        Intent intent = new Intent(context, MainActivity.class);
                         startActivity(intent);
+                        break;
                     case R.id.select:
-                        Intent intent1 = new Intent(context,ActivitySelectCompetition.class);
+                        Intent intent1 = new Intent(context, ActivitySelectCompetition.class);
                         startActivity(intent1);
                         break;
                 }
