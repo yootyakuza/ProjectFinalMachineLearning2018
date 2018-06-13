@@ -91,7 +91,7 @@ public class Fragment_other extends android.app.Fragment {
         butLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Activity_login.class);
+                Intent intent = new Intent(context, Login.class);
                 startActivity(intent);
             }
         });
@@ -102,12 +102,6 @@ public class Fragment_other extends android.app.Fragment {
                 startActivity(intent);
             }
         });
-        /*txtnoti.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
         txtNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,9 +29,9 @@ import java.util.HashMap;
 /**
  * Created by Sarayut on 30/5/2561.
  */
-public class Fragment_match extends android.app.Fragment {
+public class ViewFootballSchedule extends android.app.Fragment {
 
-    private String TAG = Fragment_match.class.getSimpleName();
+    private String TAG = ViewFootballSchedule.class.getSimpleName();
     ListView listView;
     ArrayList<HashMap<String, String>> footballMatchList;
     ProgressDialog progressDialog;
@@ -47,7 +46,7 @@ public class Fragment_match extends android.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_match, container, false);
+        View view = inflater.inflate(R.layout.fragment_schedule, container, false);
         footballMatchList = new ArrayList<>();
         listView = view.findViewById(R.id.listviewMatch);
         context = getActivity();
@@ -188,7 +187,7 @@ public class Fragment_match extends android.app.Fragment {
 
                             Boolean isSuccess = userManage.checkLoginValidate(user.getEmail());
                             if (isSuccess) {
-                                Intent intent = new Intent(context, ActivityDetail.class);
+                                Intent intent = new Intent(context, ViewMatchPrediction.class);
                                 intent.putExtra("position", position);
                                 intent.putExtra("homeTeamName",homeTeamName[position]);
                                 intent.putExtra("awayTeamName",awayTeamName[position]);

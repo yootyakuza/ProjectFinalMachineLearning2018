@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView = findViewById(R.id.navigation);
         context =this;
         userManage = new UserManage(context);
-        loadFragment(new Fragment_match());
+        loadFragment(new ViewFootballSchedule());
 
         NavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
                 Fragment selectFragment = null;
                 switch (item.getItemId()){
                     case R.id.action1_football_match:
-                        selectFragment = new Fragment_match();
+                        selectFragment = new ViewFootballSchedule();
                         break;
                     case R.id.action2_football_schedule:
-                        selectFragment = new Fragment_schedule();
+                        selectFragment = new ViewFootballScores();
                         break;
                     case R.id.action3_additional:
                         selectFragment = new Fragment_other();

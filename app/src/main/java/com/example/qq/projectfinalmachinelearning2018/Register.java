@@ -22,12 +22,12 @@ import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 /**
  * Created by Sarayut on 20/5/2561.
  */
-public class ActivityRegister extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     TextInputEditText txtUsername, txtPassword, txtConfirmpassword, txtEmail, txtAge;
     CircularProgressButton butRegister;
     private FirebaseAuth firebaseAuth;
-    FirebaseDatabaseHandle databaseHandle;
+    MenberUser databaseHandle;
     Context context;
 
     @Override
@@ -42,7 +42,7 @@ public class ActivityRegister extends AppCompatActivity {
         txtAge = findViewById(R.id.TextRegisterAge);
         butRegister = findViewById(R.id.butRegister2);
         context = this;
-        databaseHandle = new FirebaseDatabaseHandle(context);
+        databaseHandle = new MenberUser(context);
         firebaseAuth = FirebaseAuth.getInstance();
 
         butRegister.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +69,9 @@ public class ActivityRegister extends AppCompatActivity {
                 } else if (email.isEmpty()) {
                     txtEmail.setError("Please input e-mail !!");
                     txtEmail.requestFocus();
-                } else if (!EmailValidator(email)) {
+                }
+
+                else if (!EmailValidator(email)) {
                     txtEmail.setError("Please enter a valid email address !!");
                     txtEmail.requestFocus();
                 } else if (age.isEmpty()) {
@@ -79,7 +81,7 @@ public class ActivityRegister extends AppCompatActivity {
                     txtConfirmpassword.setError("Passwords do not match. please try again !!");
                     txtConfirmpassword.requestFocus();
                 } else {
-                    firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(ActivityRegister.this, new OnCompleteListener<AuthResult>() {
+                    firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
@@ -104,7 +106,7 @@ public class ActivityRegister extends AppCompatActivity {
             @Override
             protected String doInBackground(String... strings) {
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

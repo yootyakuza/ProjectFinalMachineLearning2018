@@ -3,12 +3,14 @@ package com.example.qq.projectfinalmachinelearning2018;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 
 /**
  * Created by Sarayut on 23/5/2561.
  */
 public class UserManage {
-    private final String Key_username = "YUT";
+    private final String Key_username = "CHAMP";
+    private final String TAG = "mahanakorn";
 
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
@@ -35,6 +37,7 @@ public class UserManage {
         }
 
         editor.putString(Key_username, email);
+        Log.d(TAG,"name:" + Key_username);
         return editor.commit();
     }
 

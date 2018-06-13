@@ -22,9 +22,9 @@ import java.util.HashMap;
 /**
  * Created by Sarayut on 13/5/2561.
  */
-public class Fragment_schedule extends android.app.Fragment {
+public class ViewFootballScores extends android.app.Fragment {
 
-    private String TAG = Fragment_schedule.class.getSimpleName();
+    private String TAG = ViewFootballScores.class.getSimpleName();
     ListView listView;
     ArrayList<HashMap<String, String>> footballScheduleList;
     ProgressDialog progressDialog;
@@ -32,10 +32,11 @@ public class Fragment_schedule extends android.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_schedule, container, false);
+        View view = inflater.inflate(R.layout.fragment_scores, container, false);
         footballScheduleList = new ArrayList<>();
         listView = view.findViewById(R.id.listviewSchedule);
         new GetSchedule().execute();
+
         return view;
     }
 
@@ -71,21 +72,25 @@ public class Fragment_schedule extends android.app.Fragment {
                         int hWon = Integer.valueOf(homeWon);
                         int aWon = Integer.valueOf(awayWon);
                         String resultWon = String.valueOf(hWon + aWon);
+
                         String homeDrawn = c.getString("homeDrawn");
                         String awayDrawn = c.getString("awayDrawn");
                         int hDrawn = Integer.valueOf(homeDrawn);
                         int aDrawn = Integer.valueOf(awayDrawn);
                         String resultDrawn = String.valueOf(hDrawn + aDrawn);
+
                         String homeLost = c.getString("homeLost");
                         String awayLost = c.getString("awayLost");
                         int hLost = Integer.valueOf(homeLost);
                         int aLost = Integer.valueOf(awayLost);
                         String resultLost = String.valueOf(hLost + aLost);
+                        //ยิงประตูได้กี่ลูก
                         String homeFor = c.getString("homeFor");
                         String awayFor = c.getString("awayFor");
                         int hFor = Integer.valueOf(homeFor);
                         int aFor = Integer.valueOf(awayFor);
                         String resultGF = String.valueOf(hFor + aFor);
+                        //ถูกยิงกี่ลูก
                         String homeAgainst = c.getString("homeAgainst");
                         String awayAgainst = c.getString("awayAgainst");
                         int hAgainst = Integer.valueOf(homeAgainst);
@@ -120,6 +125,7 @@ public class Fragment_schedule extends android.app.Fragment {
             } else
 
             {
+                //lost to network
                 Log.e(TAG, "Couldn't get json from server.");
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
@@ -141,7 +147,7 @@ public class Fragment_schedule extends android.app.Fragment {
                 progressDialog.dismiss();
 
                 ListAdapter adapter = new SimpleAdapter(getActivity(), footballScheduleList,
-                        R.layout.item_schedule, new String[]{"position", "name", "played", "won", "drawn", "lost","goalFor", "against", "points"}, new int[]{R.id.tvPosition, R.id.tvTeamName, R.id.tvPlay, R.id.tvWin, R.id.tvDraw, R.id.tvLost,R.id.tvGoalFor, R.id.tvGoalAgainst, R.id.tvPoints});
+                        R.layout.item_scores, new String[]{"position", "name", "played", "won", "drawn", "lost","goalFor", "against", "points"}, new int[]{R.id.tvPosition, R.id.tvTeamName, R.id.tvPlay, R.id.tvWin, R.id.tvDraw, R.id.tvLost,R.id.tvGoalFor, R.id.tvGoalAgainst, R.id.tvPoints});
                 listView.setAdapter(adapter);
             }
         }

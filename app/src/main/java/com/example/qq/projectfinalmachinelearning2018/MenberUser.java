@@ -11,14 +11,14 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * Created by Sarayut on 23/5/2561.
  */
-public class FirebaseDatabaseHandle {
+public class MenberUser {
 
     private DatabaseReference databaseUser;
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseAuth firebaseAuth;
     Context _con;
 
-    public FirebaseDatabaseHandle(Context context) {
+    public MenberUser(Context context) {
         firebaseAuth = FirebaseAuth.getInstance();
         _con = context;
     }
@@ -33,6 +33,4 @@ public class FirebaseDatabaseHandle {
         databaseUser = database.getReference("User");
         databaseUser.child(firebaseUser.getUid()).setValue(user);
     }
-
-
 }

@@ -1,7 +1,6 @@
 package com.example.qq.projectfinalmachinelearning2018;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +57,7 @@ public class CustomAdapter extends BaseAdapter{
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if(convertView == null)
-            convertView = inflater.inflate(R.layout.item_detail,parent,false);
+            convertView = inflater.inflate(R.layout.item_schedule,parent,false);
 
         TextView homeName = convertView.findViewById(R.id.homeTeamName);
         TextView awayName = convertView.findViewById(R.id.awayTeamName);

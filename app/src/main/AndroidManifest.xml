@@ -24,13 +24,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityRegister" />
+        <activity android:name=".Register" />
         <activity android:name=".ActivityNavigator" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity_login" />
-        <activity android:name=".ActivityDetail" />
+        <activity android:name=".Login" />
+        <activity android:name=".ViewMatchPrediction" />
         <activity android:name=".ActivityNews" />
         //for notification
         <service android:name=".MyFirebaseMessagingService">
@@ -44,7 +44,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".ActivitySelectCompetition"></activity>
+        <activity android:name=".ViewNotification"></activity>
     </application>
 
 </manifest>

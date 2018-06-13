@@ -3,11 +3,9 @@ package com.example.qq.projectfinalmachinelearning2018;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -17,7 +15,7 @@ import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 
-public class ActivitySelectCompetition extends AppCompatActivity {
+public class ViewNotification extends AppCompatActivity {
     public static final String TAG = "NotifyMessage";
     ListView listViewSelect;
     Context context;
@@ -28,7 +26,7 @@ public class ActivitySelectCompetition extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_competition);
+        setContentView(R.layout.activity_notification);
 
         listViewSelect = findViewById(R.id.listviewSelectTeam);
         context = this;
@@ -63,7 +61,7 @@ public class ActivitySelectCompetition extends AppCompatActivity {
         butSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ProgressDialog progressDialog = new ProgressDialog(ActivitySelectCompetition.this);
+                final ProgressDialog progressDialog = new ProgressDialog(ViewNotification.this);
                 progressDialog.setMessage("Subscribe....");
                 progressDialog.setMax(50);
                 progressDialog.show();
@@ -86,7 +84,7 @@ public class ActivitySelectCompetition extends AppCompatActivity {
         butUnsub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ProgressDialog progressDialog = new ProgressDialog(ActivitySelectCompetition.this);
+                final ProgressDialog progressDialog = new ProgressDialog(ViewNotification.this);
                 progressDialog.setMessage("Unsubscribe....");
                 progressDialog.setMax(50);
                 progressDialog.show();

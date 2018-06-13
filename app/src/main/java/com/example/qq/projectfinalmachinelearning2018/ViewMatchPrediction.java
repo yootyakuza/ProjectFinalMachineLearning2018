@@ -18,8 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ActivityDetail extends AppCompatActivity {
-    private final String TAG = ActivityDetail.class.getSimpleName();
+public class ViewMatchPrediction extends AppCompatActivity {
+    private final String TAG = ViewMatchPrediction.class.getSimpleName();
     ;
     private int pos = 0;
     private String home, away, imgHome, imgAway, time;
@@ -35,7 +35,7 @@ public class ActivityDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_matchprediction);
 
         context = this;
         //home team

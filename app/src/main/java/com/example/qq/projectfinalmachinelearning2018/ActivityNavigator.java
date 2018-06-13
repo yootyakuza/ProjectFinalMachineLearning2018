@@ -59,7 +59,7 @@ public class ActivityNavigator extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.select:
-                        Intent intent1 = new Intent(context, ActivitySelectCompetition.class);
+                        Intent intent1 = new Intent(context, ViewNotification.class);
                         startActivity(intent1);
                         break;
                 }

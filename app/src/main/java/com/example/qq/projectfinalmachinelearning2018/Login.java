@@ -24,7 +24,7 @@ import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 /**
  * Created by Sarayut on 20/5/2561.
  */
-public class Activity_login extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     TextInputEditText txtEmail, txtPassword;
     Button butRegister;
@@ -60,29 +60,28 @@ public class Activity_login extends AppCompatActivity {
                     txtPassword.requestFocus();
                 } else {
 
-                    firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(Activity_login.this, new OnCompleteListener<AuthResult>() {
+                    firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             Boolean isSuccess = userManage.registerUser(email);
                             if (isSuccess) {
                                 if (task.isSuccessful()) {
-                                    AsyncTask<String, String, String> register = getAsyncTask();
+                                    AsyncTask<String, String, String> login = getAsyncTask();
                                     butLogin.startAnimation();
-                                    register.execute();
+                                    login.execute();
                                 } else {
                                     Toast.makeText(context, "Login failed !!!", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
                     });
-
                 }
             }
         });
         butRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, ActivityRegister.class);
+                Intent intent = new Intent(context, Register.class);
                 startActivity(intent);
             }
         });

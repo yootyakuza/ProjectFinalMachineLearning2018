@@ -60,7 +60,6 @@ public class ActivityNews extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             HttpHandler sh = new HttpHandler();
             String url = "https://www.footballwebpages.co.uk/news.json?comp=1&max=8";
-            //String url = "https://api.myjson.com/bins/koxfu";
             String jsonStr = sh.makeServiceCall(url);
             Log.e(TAG, "Response from url: " + jsonStr);
             if (jsonStr != null) {
@@ -91,7 +90,7 @@ public class ActivityNews extends AppCompatActivity {
                     ActivityNews.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            //Toast.makeText(context, "Json parsing error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(context, "Json parsing error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -123,23 +122,23 @@ public class ActivityNews extends AppCompatActivity {
                 String[] published = new String[NewsList.size()];
                 final String[] link = new String[NewsList.size()];
                 for (int i = 0; i < title.length; ) {
-                    for (HashMap<String, String> hashMap : NewsList) {
-                        hashMap.keySet();
-                        for (String key : hashMap.keySet()) {
-                            if (key.equals("title")) {
-                                title[i] = hashMap.get(key);
-                            } else if (key.equals("description")) {
-                                description[i] = hashMap.get(key);
-                            } else if (key.equals("image")) {
-                                image[i] = hashMap.get(key);
-                            } else if (key.equals("published")) {
-                                published[i] = hashMap.get(key);
-                            } else if (key.equals("link")) {
-                                link[i] = hashMap.get(key);
+                        for (HashMap<String, String> hashMap : NewsList) {
+                            hashMap.keySet();
+                            for (String key : hashMap.keySet()) {
+                                if (key.equals("title")) {
+                                    title[i] = hashMap.get(key);
+                                } else if (key.equals("description")) {
+                                    description[i] = hashMap.get(key);
+                                } else if (key.equals("image")) {
+                                    image[i] = hashMap.get(key);
+                                } else if (key.equals("published")) {
+                                    published[i] = hashMap.get(key);
+                                } else if (key.equals("link")) {
+                                    link[i] = hashMap.get(key);
+                                }
                             }
+                            i++;
                         }
-                        i++;
-                    }
                 }
 
                 newsAdapter = new NewsAdapter(context, title, description, image, published);

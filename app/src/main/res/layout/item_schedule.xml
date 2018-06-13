@@ -1,115 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="95dp"
-        android:layout_height="35dp"
-        android:background="@color/common_google_signin_btn_text_light_focused"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp">
-
-        <TextView
-            android:id="@+id/tvPosition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="pos"
-            android:textColor="@color/colorWrite"
-            android:textSize="12sp" />
+    <AbsoluteLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
 
         <TextView
-            android:id="@+id/tvTeamName"
-            android:layout_width="wrap_content"
+            android:id="@+id/Time"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Team"
-            android:textColor="@color/colorWrite"
-            android:textSize="8sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="265dp"
-        android:layout_height="35dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/common_google_signin_btn_text_light_focused"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp">
-
-        <TextView
-            android:id="@+id/tvPlay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="P"
-            android:textAlignment="textEnd"
-            android:textColor="@color/colorWrite"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tvWin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="W"
-            android:textAlignment="textEnd"
-            android:textColor="@color/colorWrite"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tvDraw"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="D"
-            android:textAlignment="textEnd"
-            android:textColor="@color/colorWrite"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tvLost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="L"
-            android:textAlignment="textEnd"
-            android:textColor="@color/colorWrite"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tvGoalFor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="GF"
-            android:textAlignment="textEnd"
-            android:textColor="@color/colorWrite"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tvGoalAgainst"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="GA"
-            android:textAlignment="textEnd"
-            android:textColor="@color/colorWrite"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tvPoints"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Pts"
+            android:text="Time"
             android:textAlignment="center"
-            android:textColor="@color/colorWrite"
-            android:textSize="12sp" />
+            android:textColor="@color/colorRed"
+            android:textStyle="bold" />
+    </AbsoluteLayout>
 
-    </LinearLayout>
+    <AbsoluteLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/homeTeamName"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingRight="10dp"
+            android:text="home"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorWrite"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/awayTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_x="183dp"
+            android:layout_y="0dp"
+            android:paddingLeft="10dp"
+            android:text="away"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorWrite"
+            android:textStyle="bold" />
+    </AbsoluteLayout>
+
+    <AbsoluteLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/goalsHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="121dp"
+            android:layout_y="17dp"
+            android:text="goalsHome"
+            android:textAlignment="textEnd"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWrite" />
+
+        <TextView
+            android:id="@+id/goalsAway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="194dp"
+            android:layout_y="17dp"
+            android:text="goalsAway"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorWrite" />
+
+        <ImageView
+            android:id="@+id/imgHome"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_x="113dp"
+            android:layout_y="41dp"
+            app:srcCompat="@mipmap/ic_launcher_round"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="7dp" />
+
+        <ImageView
+            android:id="@+id/imgAway"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_x="194dp"
+            android:layout_y="41dp"
+            app:srcCompat="@mipmap/ic_launcher_round"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="7dp" />
+
+    </AbsoluteLayout>
 
 </RelativeLayout>
