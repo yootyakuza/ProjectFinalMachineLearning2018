@@ -72,8 +72,9 @@ public class ViewFootballSchedule extends android.app.Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
             HttpHandler sh = new HttpHandler();
-            // String url = "https://www.football-data.org/v1/fixtures";
-            String url = "https://api.myjson.com/bins/i3zre";
+            //String url = "https://www.football-data.org/v1/fixtures";//ข้อมูลจริงแบบ realtime
+            //String url = "https://api.myjson.com/bins/t8ozq";//ข้อมูลจำลองตารางการแข่งที่ยังไม่อัพเเดท
+            String url = "https://api.myjson.com/bins/145ec6";//ข้อมูลจำลองตารางการแข่งที่อัพเเดทแล้ว
             String jsonStr = sh.makeServiceCall(url);
             Log.e(TAG, "Response from url: " + jsonStr);
             if (jsonStr != null) {
